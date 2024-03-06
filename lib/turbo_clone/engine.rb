@@ -12,7 +12,16 @@ module TurboClone
       # Runs when action controller base is included
       ActiveSupport.on_load :action_controller_base do
         # include all helpers
+        include TurboClone::Streams::TurboStreamsTagBuilder
         helper TurboClone::Engine.helpers
+      end
+    end
+
+    initializer "turbo.renderer" do
+      ActiveSupport.on_load :action_controller do
+        ActionController::Renderers.add :turbo_stream do |turbo_streams_html, options|
+          turbo_streams_html
+        end
       end
     end
 
