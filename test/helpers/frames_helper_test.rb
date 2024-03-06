@@ -1,8 +1,8 @@
-require 'test_helper'
+require "test_helper"
 
 class TurboClone::FramesHelperTest < ActionView::TestCase
   test "frame with a model" do
-    article = Article.new id: 1, content: "doo"
+    article = Article.new id: 1, content: "not important"
 
     assert_dom_equal %[<turbo-frame id="article_1"></turbo-frame>], turbo_frame_tag(article)
   end
@@ -12,9 +12,9 @@ class TurboClone::FramesHelperTest < ActionView::TestCase
   end
 
   test "frame with a block" do
-    article = Article.new id: 1, content: "doo"
+    article = Article.new id: 1, content: "not important"
 
     assert_dom_equal %[<turbo-frame id="article_1"><p>hey</p></turbo-frame>],
-                     turbo_frame_tag(article) { tag.p("hey") }
+      turbo_frame_tag(article) { tag.p("hey") }
   end
 end

@@ -1,15 +1,1 @@
-<!--Ziel: 4 verschiedene Arten des tags-->
-<%#= turbo_stream.replace @article %>
-<%#= turbo_stream.replace @article, partial: "articles/article", locals: { article: @article } %>
-<%#= turbo_stream.replace @article, "" %>
-<%#= turbo_stream.replace @article do %>
-<%#= render @article %>
-<%# end %>
-
-<!--<turbo-stream target="<%#= dom_id(@article) %>" action="replace">-->
-<!--  <template>-->
-<%#= render partial: "articles/article", locals: { article: @article }, formats: :html %>
-<!--  </template>-->
-<!--</turbo-stream>-->
-
-<%= turbo_stream.replace @article, "hello wrld!" %>
+<%= turbo_stream.replace @article %>
